@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+class abc
+{ 
+    public:
+    int i1;
+  int i2;
+ abc two_sum()
+{
+    int target;
+    int n;
+    int nums[n];
+    cout<<"Enter the size of array";
+    cin>>n;
+    cout<<"Enter the elements";    
+    for(int i=0;i<n;i++)
+    {
+        cin>>nums[i];
+    }
+    cout<<"Enter the target sum";
+    cin>>target;
+    abc c;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            if(nums[i]+nums[j]==target)
+            {
+              c.i1=i;
+              c.i2=j;  
+            }
+            
+        }
+    }
+    return c;
+}
+ int main()
+{
+     abc ob1;
+     abc ob=ob1.two_sum();
+     cout<<ob.i1<<ob.i2;
+     return 0;
+}
+};
