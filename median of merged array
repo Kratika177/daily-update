@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+class abc
+{
+  public:
+    void meadian()
+    {
+        int size1;
+        int size2;
+        int size3=size1+size2;
+        int merged[size3];
+        int array1[size1];
+        int array2[size2];
+        cout<<"Enter size of array 1 ";
+        cin>>size1;
+        cout<<"Enter the element of array";
+        for(int i=0;i<size1;i++)
+        {
+            cin>>array1[i];
+        }
+        cout<<"Enter the element of array";
+        for(int i=0;i<size2;i++)
+        {
+            cin>>array2[i];
+        }
+       int i, j, k,index;
+   i = 0;
+   j = 0;
+   k = 0;
+        
+   while (i < size1 && j < size2) {
+      if (array1[i] < array2[j]) {
+         merged[k] = array1[i];
+         ++k;
+         ++i;
+      } else {
+         merged[k] = array2[j];
+         ++k;
+         ++j;
+      }
+   }
+   while (i < size1) {
+      merged[k] = array1[i];
+      ++k;
+      ++i;
+   }
+   while (j < size2) {
+      merged[k] = array2[j];
+      ++k;
+      ++j;
+   }
+    for(k=0;k<size3;k++)
+    {
+        cout<<merged[k];
+    }
+     if(size3%2!=0)
+     {
+        index= (size3/2)+1;
+        cout<<"Median is"<<merged[index]; 
+     }
+     else
+     {
+         cout<<"Median is"<<(merged[size3/2]+merged[(size3/2)+1])/2; 
+     }
+       
+    }
+    int main()
+    {
+        abc s;
+        s.meadian();
+     return 0;   
+    }
+};
