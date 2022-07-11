@@ -34,11 +34,12 @@ class abc
     }
     return c;
 }
+
+};
  int main()
 {
      abc ob1;
      abc ob=ob1.two_sum();
-     cout<<ob.i1<<ob.i2;
+     cout<<ob.i2<<" "<<ob.i1;
      return 0;
 }
-};
