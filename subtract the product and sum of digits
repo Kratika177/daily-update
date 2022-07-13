@@ -1,0 +1,22 @@
+class Solution {
+    public int subtractProductAndSum(int n) {
+     int pos=1;
+     int sum=0;
+     int dif=0;
+     int num=n;   
+    do
+     {
+         int m=n%10;
+         pos =pos*m;
+         n=n/10;
+     } while(n!=0);
+     do   
+      {
+         int m=num%10;
+         sum =sum+m;
+         num=num/10;
+     } while(num!=0); 
+        dif=(pos-sum);
+        return dif;
+    }
+}
