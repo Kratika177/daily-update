@@ -1,0 +1,25 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+     List<Integer> profits=new ArrayList<>();
+       
+        for(int i=0;i<prices.length-1;i++)
+        {
+             for(int j=i+1;j<prices.length;j++)
+             {
+                 profits.add(prices[j]-prices[i]);
+             }
+        }
+       
+        int maxp=0;
+        for(int i=0;i<profits.size();i++)
+        {
+
+          if(maxp<profits.get(i))
+              maxp=profits.get(i);                
+            
+        }
+       
+            return maxp;   
+                
+    }
+}
