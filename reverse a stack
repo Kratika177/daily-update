@@ -1,0 +1,84 @@
+#include <iostream>
+using namespace std;
+class Node{
+	public:
+		int data;
+	    Node *next;
+	    Node(){		}
+	    Node(int val){
+	    	this->data=val;
+	    	this->next=0;
+		}
+	 
+};
+class Stack{
+	public:
+		Node *head;
+		bool isEmpty(){
+			return head==0;
+		}  
+		void push(int val)
+		{
+			Node *newNode=new Node(val);
+			if(isEmpty())
+			{
+				head=newNode;
+				return;
+			}
+			newNode->next=head;
+			head=newNode;			
+		}
+		int pop(){
+			if(isEmpty()){
+				return -1;
+			}
+			
+			int top=head->data;
+			head=head->next;
+			return top;
+		}
+		int peek(){
+			if(isEmpty())
+			{
+				return -1;
+			}
+			return head->data;
+		}
+		void addToBottom(int val,Stack s)
+		{
+			if(isEmpty())
+			{
+				push(val);
+				return;
+			}
+			int top=pop();
+			addToBottom(val,s);
+			push(top);
+		}
+		void reverse(Stack s)
+		{
+			if(isEmpty())
+			{
+				return;
+			}
+			int top=pop();
+			reverse(s);
+			addToBottom(top,s);
+		}
+	
+};
+int main()
+{
+	Stack s;
+	s.push(1);
+	s.push(2);
+	s.push(3);
+	s.push(4);
+	s.reverse(s);
+	while(!s.isEmpty()){
+		
+		cout<<s.peek()<<" ";
+		s.pop();
+	}
+return 0;	
+}
