@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+class queue{
+	public:
+	int arr[5];
+	int rear=-1;
+	int front=-1;
+	int size=5;
+	queue(){
+		
+	}
+	bool isEmpty()
+	{
+		return rear==-1 && front==-1;
+	}
+	bool isFull()
+	{
+		return (rear+1)%size ==front;
+	}	
+	void add(int val){
+		if(isFull()){
+			cout<<"queue full!!"<<endl;
+			return; 
+		}
+		rear=(rear+1)%size;
+		arr[rear]=val;		
+	}
+	int remove(){
+		
+		if(isEmpty()){
+			cout<<"Empty queue!!";
+			return -1; 
+		}
+		int result=arr[front];
+		
+		if(rear==front){
+			rear=front=-1;
+		}
+		else{
+			front=(front+1)%size;
+		}
+		return result;		
+	}
+	int peek(){
+		if(isEmpty()){
+			cout<<"Empty queue!!";
+			return -1; 
+		}
+		return arr[front];
+	}
+	
+};
+int main(){
+	queue q;
+	q.add(1);
+	q.add(2);
+	q.add(3);
+	q.add(4);
+	q.add(5);
+	cout<<q.remove()<<" "<<q.remove();
+	q.add(6);
+	q.add(7);
+	while(!q.isEmpty()){
+		cout<<q.peek()<<" ";
+		q.remove();
+	}
+return 0;				
+}
