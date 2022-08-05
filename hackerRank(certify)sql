@@ -1,0 +1,5 @@
+/*
+Enter your query below.
+Please append a semicolon ";" at the end of the query
+*/
+select student_information.roll_number,student_information.name from student_information join examination_marks on student_information.roll_number=examination_marks.roll_number Group BY examination_marks.roll_number Having sum(subject_one+subject_two+subject_three)<100;
